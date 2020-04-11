@@ -1,4 +1,4 @@
-import {observable} from 'mobx';
+import { observable } from 'mobx';
 import { userModel } from './loadUserByToken';
 
 type user = { id: number | null, name: string | null };
