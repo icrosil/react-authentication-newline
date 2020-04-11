@@ -1,0 +1,9 @@
+{
+  "name": "react-authentication-newline",
+  "version": "1.0.0",
+  "description": "React Authentication",
+  "main": "index.js",
+  "repository": "git@github.com:icrosil/react-authentication-newline.git",
+  "author": "Illia Olenchenko <icrosil@gmail.com>",
+  "license": "MIT"
+}
