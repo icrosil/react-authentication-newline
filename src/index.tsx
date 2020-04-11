@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import {loadUserByToken} from './user/loadUserByToken';
+import { saveUserInStore } from './user/userStore';
+
+loadUserByToken('3')
+  .then(saveUserInStore)
 
 ReactDOM.render(
   <React.StrictMode>
