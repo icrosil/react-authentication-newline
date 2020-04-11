@@ -1,11 +1,11 @@
 import React from 'react'
 import {observer} from 'mobx-react';
-import {user} from './userStore';
+import {userStore} from './userStore';
 
 export const ExampleUserStore = observer(() => {
   return (
     <div>
-      {user.id} {user.name}
+      {userStore.id} {userStore.name}
     </div>
   )
 });
