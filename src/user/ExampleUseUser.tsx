@@ -10,7 +10,9 @@ export function ExampleUseUser({id}: Props) {
   if (!user) return <div>no user</div>;
   return (
     <div>
-      {user.id} {user.first_name}
+      {user.data.id} {user.data.first_name}
+      <br/>
+      {user.ad.company}
     </div>
   )
 }

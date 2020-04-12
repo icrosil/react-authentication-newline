@@ -5,6 +5,7 @@ import {ExampleUseUser} from './user/ExampleUseUser';
 import {ExampleUserStore} from './user/ExampleUserStore';
 import { Login } from './user/Login';
 import { setUndefinedUser } from './user/userStore';
+import { ExampleExtraInfoWhenLoggedIn } from './user/ExampleExtraInfoWhenLoggedIn';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
+        <ExampleExtraInfoWhenLoggedIn></ExampleExtraInfoWhenLoggedIn>
         <Login>
           <ExampleUseUser id="1"></ExampleUseUser>
           <ExampleUseUser id="2"></ExampleUseUser>
