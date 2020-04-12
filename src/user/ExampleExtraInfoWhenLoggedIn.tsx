@@ -6,7 +6,7 @@ import { useUser } from './useUser';
 export const ExampleExtraInfoWhenLoggedIn = observer(() => {
   const [user] = useUser('5');
   if (!user?.data.id) return null;
-  const text = `${user?.data?.first_name} ${isLoggedIn ? `is working at ${user?.ad.company}` : ''}`;
+  const text = `${user?.data?.first_name} ${isLoggedIn.get() ? `is working at ${user?.ad.company}` : ''}`;
   return (
     <div>
       {text}

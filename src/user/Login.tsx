@@ -9,7 +9,7 @@ type Props = {
 export const Login = observer(({ children }: Props) => {
   const [login, setLogin] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  if (isLoggedIn) {
+  if (!isLoggedIn.get()) {
     return (
       <form onSubmit={(event) => {
         event.preventDefault();
