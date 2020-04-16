@@ -1,6 +1,6 @@
 import { observable, computed } from 'mobx';
-import { userModel, loadUserByToken, checkForUserLogout } from './loadUserByToken';
-import { logUserInLocalSystem } from './logUserInLocalSystem';
+import { userModel, loadUserByToken, checkForUserLogout, releaseUserLogout } from './loadUserByToken';
+import { logUserInLocalSystem, logUserOutLocalSystem } from './logUserInLocalSystem';
 
 type user = { id: number | null, name: string | null, isLoaded: boolean, company: string | null };
 
@@ -21,6 +21,10 @@ export function saveUserInStore(userToStore: userModel) {
 }
 
 export function setUndefinedUser() {
+  if (userStore.id) {
+    logUserOutLocalSystem(userStore.id)
+    releaseUserLogout()
+  }
   userStore.id = null;
   userStore.name = null;
   userStore.company = null;
@@ -30,7 +34,7 @@ export function setUndefinedUser() {
 export async function logUserIn(userId: string) {
   loadUserByToken(userId)
     .then(saveUserInStore)
+    .then(() => logUserInLocalSystem(userId))
+    .then(() => checkForUserLogout(userId, setUndefinedUser))
     .catch(setUndefinedUser)
-    // .then(() => logUserInLocalSystem(userId))
-    // .then(() => checkForUserLogout(userId))
 }
